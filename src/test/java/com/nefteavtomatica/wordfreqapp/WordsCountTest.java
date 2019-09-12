@@ -26,13 +26,6 @@ public class WordsCountTest {
         assertNotNull("wordList should not be null",wordsListShouldNotBeNull);       
     }
 
-    //to-do: delete?
-    public List<String> getWordsList(String fileName) throws Exception{
-        WordsCount wordsCount = getWordsCount(fileName); 
-        List<String> wordsList = wordsCount.parseToList();
-        return wordsList;
-    }
-
     public  WordsCount getWordsCount(String fileName) throws Exception {
         TextFileReader textFileReader = new TextFileReader(fileName);
         File file = textFileReader.getFile();     

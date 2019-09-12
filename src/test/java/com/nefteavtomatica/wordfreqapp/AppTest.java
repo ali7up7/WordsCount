@@ -1,11 +1,9 @@
 package com.nefteavtomatica.wordfreqapp;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.*;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -22,10 +20,14 @@ public class AppTest {
 
 
     
-    @Test(expected = Exception.class)
-    public void testWithNoFileThrowsException() throws Exception {
-            App givenApp = new App();       
-            givenApp.getFile("really not existing file.txt"); 
+
+    @Test
+    public void testOfWordsListNotNull() throws Exception {
+        App app = new App();
+        File file = app.getFile("words to count frequency.txt");      
+        List<String> wordsListShouldNotBeNull;
+        wordsListShouldNotBeNull = app.parseToList(file);
+        assertNotNull("should not be null",wordsListShouldNotBeNull);       
     }
 
     @Test

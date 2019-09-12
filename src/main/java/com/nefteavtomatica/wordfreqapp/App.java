@@ -14,14 +14,16 @@ public class App {
         App app = new App();
     }
 
+
+
     public List<String> parseToList(File file) throws FileNotFoundException {
-    Scanner scanner = new Scanner(file);
-    List<String> wordsList = new ArrayList<>();
-    while (scanner.hasNext())
-        wordsList.add(scanner.next());
-    scanner.close();
-    return wordsList;
-    }
+        Scanner jogger = new Scanner(file);
+        List<String> wordsList = new ArrayList<>();
+        while (jogger.hasNext())
+            wordsList.add(jogger.next());
+        jogger.close();
+        return wordsList;
+        }
 
     public File getFile(String fileName) throws Exception {
         String fileAbsName = "src/main/java/com/nefteavtomatica/wordfreqapp/"+fileName;
@@ -29,7 +31,7 @@ public class App {
         try {
             if (extensionIsTxtOf(fileAbsName)) {} 
             else throw new UnknownTypeException(null, fileAbsName);
-            return    wordsToCountFile = new File(fileName);
+            return    wordsToCountFile = new File(fileAbsName);
         } catch (UnknownTypeException e) {
             System.out.println("unknown file type");
             e.printStackTrace(); 

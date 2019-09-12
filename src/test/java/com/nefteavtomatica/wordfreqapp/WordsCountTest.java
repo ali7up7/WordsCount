@@ -31,7 +31,7 @@ public class WordsCountTest {
         return wordsList;
     }
 
-    public WordsCount getWordsCount(String fileName) throws Exception {
+    public  WordsCount getWordsCount(String fileName) throws Exception {
         TextFileReader textFileReader = new TextFileReader(fileName);
         File file = textFileReader.getFile();     
         WordsCount wordsCount = new WordsCount(file);    

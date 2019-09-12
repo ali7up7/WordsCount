@@ -20,7 +20,7 @@ public class WordsCount {
         Map<String, Long> wordsFreqsMap= new HashMap<String, Long>();
         long wordFreq;
         for (String word: wordsList){
-            wordFreq = wordsList.stream().filter( f -> f.contains(word)).count();
+            wordFreq = wordsList.stream().filter( f -> f.equals(word)).count();
             wordsFreqsMap.putIfAbsent(word, wordFreq);
         }   
         return  wordsFreqsMap;    

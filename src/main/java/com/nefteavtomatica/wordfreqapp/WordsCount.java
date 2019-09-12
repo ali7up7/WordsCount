@@ -7,15 +7,22 @@ import javax.lang.model.type.UnknownTypeException;
 import java.io.*;
 
 
-public class App {
+public class WordsCount {
 
     public static void main(String[] args) {
         System.out.println("buy ");
-        App app = new App();
     }
 
-
-
+    public Map<String, Long> countWordsFrequencies(List<String> wordsList){
+        Map<String, Long> wordsFreqsMap= new HashMap<String, Long>();
+        long wordFreq;
+        for (String word: wordsList){
+            wordFreq = wordsList.stream().filter( f -> f.contains(word)).count();
+            wordsFreqsMap.putIfAbsent(word, wordFreq);
+        }   
+        return  wordsFreqsMap;    
+    }
+    
     public List<String> parseToList(File file) throws FileNotFoundException {
         Scanner jogger = new Scanner(file);
         List<String> wordsList = new ArrayList<>();
@@ -25,7 +32,7 @@ public class App {
         return wordsList;
         }
 
-    public File getFile(String fileName) throws Exception {
+    File getFile(String fileName) throws Exception {
         String fileAbsName = "src/main/java/com/nefteavtomatica/wordfreqapp/"+fileName;
         File wordsToCountFile; 
         try {

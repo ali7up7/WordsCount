@@ -11,19 +11,17 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple WordsCount.
  */
-public class AppTest {
-   
-      
+public class WordsCountTest {
+    @Test
+    public void testOfCountWordsFrequencies(){
 
-
-
-    
+    }
 
     @Test
     public void testOfWordsListNotNull() throws Exception {
-        App app = new App();
+        WordsCount app = new WordsCount();
         File file = app.getFile("words to count frequency.txt");      
         List<String> wordsListShouldNotBeNull;
         wordsListShouldNotBeNull = app.parseToList(file);
@@ -32,7 +30,7 @@ public class AppTest {
 
     @Test
     public void testFileExtensionIsTxt() throws IOException {
-        App app = new App();
+        WordsCount app = new WordsCount();
         boolean shouldBeTrue = false;      
         shouldBeTrue = app.extensionIsTxtOf("somefilename.txt");
         assertTrue(shouldBeTrue);
@@ -40,29 +38,9 @@ public class AppTest {
 
     @Test
     public void testFileExtensionIsNotTxt() throws IOException {
-        App app = new App();
+        WordsCount app = new WordsCount();
         boolean shouldBeFalse = true;      
         shouldBeFalse = app.extensionIsTxtOf("anotherfilename.avi");
         assertFalse(shouldBeFalse);
     }
-
-  
-
-
-
-
-  
-/** 
- * 
-    String fileName =  "words to count frequency.txt";
- * 
-    @Test
-    public void wordsListShouldBe_Bad() throws IOException {
-        try{
-            App app=new App();
-            app.getFile();            
-        } catch (Exception e) {
-        }    
-    }
-*/
 }

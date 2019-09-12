@@ -6,6 +6,7 @@ import java.io.*;
 
 public class WordsCount {
     private File  file;
+    private List<String> wordsList;
 
     public WordsCount(File file){
         this.file = file;
@@ -15,7 +16,7 @@ public class WordsCount {
         System.out.println("buy ");
     }
 
-    public Map<String, Long> countWordsFrequencies(List<String> wordsList){
+    public Map<String, Long> countWordsFrequencies(){
         Map<String, Long> wordsFreqsMap= new HashMap<String, Long>();
         long wordFreq;
         for (String word: wordsList){

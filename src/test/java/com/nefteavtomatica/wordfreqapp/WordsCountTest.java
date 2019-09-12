@@ -1,8 +1,9 @@
 package com.nefteavtomatica.wordfreqapp;
 
-import static org.junit.Assert.*;
 import java.io.File;
-import java.util.List;
+import java.util.*;
+
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 
@@ -10,22 +11,30 @@ public class WordsCountTest {
 
 
     @Test
-    public void testOfCountWordsFrequencies(){
-
-
+    public void  assertWordsFreqMapNotNull() throws Exception {
+        WordsCount wordsCount = getWordsCount("words to count frequency.txt");
+        List<String> wordsList = wordsCount.parseToList(); 
+        Map<String, Long> wordsFreqMap = wordsCount.countWordsFrequencies();
+        assertNotNull(wordsFreqMap);       
     }
 
     @Test
     public void testOfWordsListNotNull() throws Exception {
         List<String> wordsListShouldNotBeNull;
-        wordsListShouldNotBeNull = getWordsList("words to count frequency.txt").parseToList();
+        wordsListShouldNotBeNull = getWordsCount("words to count frequency.txt").parseToList();
         assertNotNull("wordList should not be null",wordsListShouldNotBeNull);       
     }
 
-    public WordsCount getWordsList(String fileName) throws Exception {
+    public List<String> getWordsList(String fileName) throws Exception{
+        WordsCount wordsCount = getWordsCount(fileName); 
+        List<String> wordsList = wordsCount.parseToList();
+        return wordsList;
+    }
+
+    public WordsCount getWordsCount(String fileName) throws Exception {
         TextFileReader textFileReader = new TextFileReader(fileName);
         File file = textFileReader.getFile();     
-        WordsCount wordsCount = new WordsCount(file);      
+        WordsCount wordsCount = new WordsCount(file);    
         return wordsCount;
         }
 }

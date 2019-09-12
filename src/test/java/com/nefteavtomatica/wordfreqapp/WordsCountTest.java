@@ -1,14 +1,14 @@
 package com.nefteavtomatica.wordfreqapp;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
-import java.util.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 import org.junit.Test;
-import junit.framework.TestCase;
 
 /**
  * Unit test for simple WordsCount.
@@ -21,26 +21,29 @@ public class WordsCountTest {
 
     @Test
     public void testOfWordsListNotNull() throws Exception {
-        WordsCount app = new WordsCount();
-        File file = app.getFile("words to count frequency.txt");      
+        WordsCount wordsCount = new WordsCount();
+        TextFileReader textFileReader = new TextFileReader("words to count frequency.txt");
+        File file = textFileReader.getFile();     
         List<String> wordsListShouldNotBeNull;
-        wordsListShouldNotBeNull = app.parseToList(file);
+        wordsListShouldNotBeNull = wordsCount.parseToList(file);
         assertNotNull("should not be null",wordsListShouldNotBeNull);       
     }
 
     @Test
-    public void testFileExtensionIsTxt() throws IOException {
-        WordsCount app = new WordsCount();
+    public void assertExtensionIsTxt() throws IOException {
+        TextFileReader textFileReader = new TextFileReader("words to count frequency.txt");
         boolean shouldBeTrue = false;      
-        shouldBeTrue = app.extensionIsTxtOf("somefilename.txt");
+        shouldBeTrue = textFileReader.extensionIsTxtOf("somefilename.txt");
         assertTrue(shouldBeTrue);
     }
 
     @Test
-    public void testFileExtensionIsNotTxt() throws IOException {
-        WordsCount app = new WordsCount();
+    public void assertExtentionIsNotTxt() throws IOException {
+        TextFileReader textFileReader = new TextFileReader("words to count frequency.txt");
         boolean shouldBeFalse = true;      
-        shouldBeFalse = app.extensionIsTxtOf("anotherfilename.avi");
+        shouldBeFalse = textFileReader.extensionIsTxtOf("anotherfilename.avi");
         assertFalse(shouldBeFalse);
     }
+
+
 }

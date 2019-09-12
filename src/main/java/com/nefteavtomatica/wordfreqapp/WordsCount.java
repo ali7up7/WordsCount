@@ -6,7 +6,7 @@ import java.io.*;
 
 public class WordsCount {
     private File  file;
-    private List<String> wordsList;
+    protected List<String> wordsList;
 
     public WordsCount(File file){
         this.file = file;
@@ -28,7 +28,7 @@ public class WordsCount {
     
     public List<String> parseToList() throws FileNotFoundException {
         Scanner jogger = new Scanner(file);
-        List<String> wordsList = new ArrayList<>();
+        wordsList = new ArrayList<>();
         while (jogger.hasNext())
             wordsList.add(jogger.next());
         jogger.close();

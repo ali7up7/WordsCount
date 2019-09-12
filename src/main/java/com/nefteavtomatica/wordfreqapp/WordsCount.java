@@ -1,25 +1,19 @@
 package com.nefteavtomatica.wordfreqapp;
 
 import java.util.*;
-
-import javax.lang.model.type.UnknownTypeException;
-
 import java.io.*;
 
 
 public class WordsCount {
-    protected String fileName;
-    private File  wordsToCountFile;
+    private File  file;
+
+    public WordsCount(File file){
+        this.file = file;
+    }
 
     public static void main(String[] args) {
         System.out.println("buy ");
     }
-
-
-
-
-
-   
 
     public Map<String, Long> countWordsFrequencies(List<String> wordsList){
         Map<String, Long> wordsFreqsMap= new HashMap<String, Long>();
@@ -31,7 +25,7 @@ public class WordsCount {
         return  wordsFreqsMap;    
     }
     
-    public List<String> parseToList(File file) throws FileNotFoundException {
+    public List<String> parseToList() throws FileNotFoundException {
         Scanner jogger = new Scanner(file);
         List<String> wordsList = new ArrayList<>();
         while (jogger.hasNext())

@@ -13,7 +13,7 @@ public class TextFileReader {
         } 
 
         public File getFile() throws Exception {
-            String fileAbsName = "src/main/java/com/nefteavtomatica/wordfreqapp/"+fileName;
+            String fileAbsName = "src/test/java/com/nefteavtomatica/wordfreqapp/"+fileName;
             File wordsToCountFile; 
             try {
                 if (extensionIsTxt()) {} 

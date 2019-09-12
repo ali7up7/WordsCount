@@ -21,10 +21,12 @@ public class WordsCountTest {
     @Test
     public void testOfWordsListNotNull() throws Exception {
         List<String> wordsListShouldNotBeNull;
-        wordsListShouldNotBeNull = getWordsCount("words to count frequency.txt").parseToList();
+        WordsCount wordsCount = getWordsCount("words to count frequency.txt");
+        wordsListShouldNotBeNull = wordsCount.parseToList();
         assertNotNull("wordList should not be null",wordsListShouldNotBeNull);       
     }
 
+    //to-do: delete?
     public List<String> getWordsList(String fileName) throws Exception{
         WordsCount wordsCount = getWordsCount(fileName); 
         List<String> wordsList = wordsCount.parseToList();

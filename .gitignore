@@ -1,0 +1,3 @@
+#ignore testing data files
+*.lst
+*.xml

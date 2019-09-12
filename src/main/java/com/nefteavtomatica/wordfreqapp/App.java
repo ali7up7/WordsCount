@@ -12,38 +12,35 @@ public class App {
     public static void main(String[] args) {
         System.out.println("buy ");
         App app = new App();
-       
-
     }
 
+    public List<String> parseToList(File file) throws FileNotFoundException {
+    Scanner scanner = new Scanner(file);
+    List<String> wordsList = new ArrayList<>();
+    while (scanner.hasNext())
+        wordsList.add(scanner.next());
+    scanner.close();
+    return wordsList;
+    }
 
-
- 
-
-    public void readFile(String fileName) throws Exception {
+    public File getFile(String fileName) throws Exception {
+        String fileAbsName = "src/main/java/com/nefteavtomatica/wordfreqapp/"+fileName;
+        File wordsToCountFile; 
         try {
-            
-            File wordsToCountFile = new File(
-                    "src/main/java/com/nefteavtomatica/wordfreqapp/"+fileName);
-            Scanner scanner = new Scanner(wordsToCountFile);
-            List<String> wordsList = new ArrayList<>();
-
-            while (scanner.hasNext())
-                wordsList.add(scanner.next());
-            scanner.close();
+            if (extensionIsTxtOf(fileAbsName)) {} 
+            else throw new UnknownTypeException(null, fileAbsName);
+            return    wordsToCountFile = new File(fileName);
         } catch (UnknownTypeException e) {
             System.out.println("unknown file type");
             e.printStackTrace(); 
         } catch (FileNotFoundException e) {
             System.out.println("can not find the file");
             e.printStackTrace(); 
-            throw new FileNotFoundException();
-        }                
+        }
+        return null;
         } 
-    
 
-
-    public boolean extensionIsTxt(String file) throws IOException {
+    boolean extensionIsTxtOf(String file) throws IOException {
         Optional<String> maybeExtension = getExtension(file);
         String extension = maybeExtension.orElseThrow(IOException::new);
             if ("txt".equals(extension)) 
@@ -51,14 +48,11 @@ public class App {
         return false;           
     }
 
-    public Optional<String> getExtension(String file) {
+    private Optional<String> getExtension(String file) {
         return Optional.ofNullable(file)
              .filter(f -> f.contains("."))
              .map(f -> f.substring(file.lastIndexOf(".") + 1));
     }
-    
-
-
 }
     
 

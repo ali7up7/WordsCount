@@ -19,17 +19,20 @@ public class AppTest {
    
       
 
+
+
+    
     @Test(expected = Exception.class)
-    public void testWithNoFile() throws Exception {
-            App app = new App();       
-            app.readFile("really not existing file.txt"); 
+    public void testWithNoFileThrowsException() throws Exception {
+            App givenApp = new App();       
+            givenApp.getFile("really not existing file.txt"); 
     }
 
     @Test
     public void testFileExtensionIsTxt() throws IOException {
         App app = new App();
         boolean shouldBeTrue = false;      
-        shouldBeTrue = app.extensionIsTxt("somefilename.txt");
+        shouldBeTrue = app.extensionIsTxtOf("somefilename.txt");
         assertTrue(shouldBeTrue);
     }
 
@@ -37,7 +40,7 @@ public class AppTest {
     public void testFileExtensionIsNotTxt() throws IOException {
         App app = new App();
         boolean shouldBeFalse = true;      
-        shouldBeFalse = app.extensionIsTxt("anotherfilename.avi");
+        shouldBeFalse = app.extensionIsTxtOf("anotherfilename.avi");
         assertFalse(shouldBeFalse);
     }
 
@@ -55,7 +58,7 @@ public class AppTest {
     public void wordsListShouldBe_Bad() throws IOException {
         try{
             App app=new App();
-            app.readFile();            
+            app.getFile();            
         } catch (Exception e) {
         }    
     }

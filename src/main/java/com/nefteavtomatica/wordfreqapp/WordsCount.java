@@ -9,8 +9,6 @@ public class WordsCount {
     protected List<String> wordsList;
     protected Map<String, Long> wordsFreqMap;
 
-    private WordsCount wordsCount;
-
     public WordsCount(){
         
     }
@@ -29,7 +27,7 @@ public class WordsCount {
         printWordsFrequencies();
     }
 
-    public void countWordsFrequencies(){
+    protected void countWordsFrequencies(){
         long wordFreq;
         wordsFreqMap = new HashMap<String, Long>();
         for (String word: wordsList){
@@ -38,7 +36,7 @@ public class WordsCount {
         }       
     }
     
-    public void parseToList() throws FileNotFoundException {
+    protected void parseToList() throws FileNotFoundException {
         Scanner jogger = new Scanner(file);
         wordsList = new ArrayList<String>();
         while (jogger.hasNext())
@@ -46,12 +44,12 @@ public class WordsCount {
         jogger.close();
         }
 
-    public void printWordsFrequencies(){
+    protected void printWordsFrequencies(){
         System.out.println("table of words with their frequencies");
         wordsFreqMap.forEach((word, freq) -> System.out.printf("%15s  number is %d%n", word, freq));
     } 
     
-    public  void setFile(String fileName) throws Exception {
+    protected  void setFile(String fileName) throws Exception {
         TextFileReader textFileReader = new TextFileReader(fileName);
         file = textFileReader.getTxtFile();        
         }

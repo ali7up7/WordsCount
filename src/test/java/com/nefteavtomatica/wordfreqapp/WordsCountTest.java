@@ -1,5 +1,6 @@
 package com.nefteavtomatica.wordfreqapp;
 
+import java.nio.file.NoSuchFileException;
 import java.util.*;
 
 import static org.junit.Assert.*;
@@ -8,6 +9,13 @@ import org.junit.Test;
 
 public class WordsCountTest {
     private WordsCount wordsCount;  
+
+    @Test (expected = NoSuchFileException.class)
+    public void setFileThrowsNoSuchFileException() throws Exception {
+        wordsCount = new WordsCount();
+        wordsCount.setFile("i am not here .txt");
+        
+    }
 
     @Test
     public void testFileSetByPromptNotNull() throws Exception {

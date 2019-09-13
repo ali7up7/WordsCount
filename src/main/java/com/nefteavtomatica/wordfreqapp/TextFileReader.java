@@ -2,6 +2,7 @@ package com.nefteavtomatica.wordfreqapp;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.util.Optional;
 
 import javax.lang.model.type.UnknownTypeException;
@@ -15,25 +16,23 @@ public class TextFileReader {
         } 
 
         public File getTxtFile() throws Exception{
-            try {
+            
             if (extensionIsTxt())  {
             } else
                 throw new UnknownTypeException(null, fileName);
-            readFile(fileName);    
-            
-            return null;
+            readFile(fileName);         
+            return file;
             } 
 
-        private File readFile(String fileName){
-            if (Files.exists("",fileName))
-            return new File(fileName);
+        private void readFile(String fileName) throws NoSuchFileException {
+            try {
+              File possiblyFile = new File(fileName);
+              if (possiblyFile.exists()) file = possiblyFile;
+              else throw new NoSuchFileException(fileName); 
             } catch (UnknownTypeException e) {
                 System.out.println("unknown file type");
                 e.printStackTrace(); 
-            } catch (FileNotFoundException e) {
-                System.out.println("can not find the file");
-                e.printStackTrace(); 
-            }
+        }
             
         }    
     

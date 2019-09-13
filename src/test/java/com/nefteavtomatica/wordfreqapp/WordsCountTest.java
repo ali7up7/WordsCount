@@ -44,7 +44,7 @@ public class WordsCountTest {
     @Test
     public void testFileNotNull() throws Exception {
         WordsCount wordsCount = new WordsCount();
-        wordsCount.setFile("words11.txt");
+        wordsCount.setFile("words.txt");
         assertNotNull("file should not be null",wordsCount.file); 
     }
 }

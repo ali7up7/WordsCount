@@ -47,7 +47,7 @@ public class WordsCount {
 
     protected void printWordsFrequencies(){
         System.out.println("table of words with their frequencies");
-        wordsFreqMap.forEach((word, freq) -> System.out.printf("%15s  number is %d%n", word, freq));
+        wordsFreqMap.forEach((word, freq) -> System.out.printf("%40s  number is %d%n", word, freq));
     } 
     
     protected  void setFile(String fileName) throws Exception {

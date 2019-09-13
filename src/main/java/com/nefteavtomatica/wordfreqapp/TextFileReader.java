@@ -16,22 +16,15 @@ public class TextFileReader {
         } 
 
         public File getTxtFile() throws Exception{        
-            if (extensionIsTxt())  {
-            } else
-                throw new UnknownTypeException(null, fileName);
+            if (!extensionIsTxt())  throw new UnknownTypeException(null, fileName);
             readFile();         
             return file;
             } 
 
         protected void readFile() throws NoSuchFileException {
-            try {
               File possiblyFile = new File(fileName);
               if (possiblyFile.exists()) file = possiblyFile;
-              else throw new NoSuchFileException(fileName); 
-            } catch (UnknownTypeException e) {
-                System.out.println("unknown file type");
-                e.printStackTrace(); 
-            }          
+              else throw new NoSuchFileException(fileName);          
         }    
    
         boolean extensionIsTxt() throws IOException {
@@ -39,7 +32,7 @@ public class TextFileReader {
             String extension = maybeExtension.orElseThrow(IOException::new);
                 if ("txt".equals(extension)) 
                  return true;
-            return false;           
+            return false;     
         }
     
         private Optional<String> getExtension() {

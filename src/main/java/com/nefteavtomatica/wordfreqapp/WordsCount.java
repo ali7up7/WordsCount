@@ -5,34 +5,43 @@ import java.io.*;
 
 
 public class WordsCount {
-    private File  file;
+    protected File  file;
     protected List<String> wordsList;
+    protected Map<String, Long> wordsFreqMap;
 
-    public WordsCount(File file){
-        this.file = file;
+    public WordsCount(){
+        
     }
 
     public static void main(String[] args) {
-        System.out.println("buy ");
+        System.out.println("----+-----");
     }
 
-    public Map<String, Long> countWordsFrequencies(){
-        Map<String, Long> wordsFreqsMap= new HashMap<String, Long>();
+    public void countWordsFrequencies(){
         long wordFreq;
+        wordsFreqMap = new HashMap<String, Long>();
         for (String word: wordsList){
             wordFreq = wordsList.stream().filter( f -> f.equals(word)).count();
-            wordsFreqsMap.putIfAbsent(word, wordFreq);
-        }   
-        return  wordsFreqsMap;    
+            wordsFreqMap.putIfAbsent(word, wordFreq);
+        }       
     }
     
-    public List<String> parseToList() throws FileNotFoundException {
+    public void parseToList() throws FileNotFoundException {
         Scanner jogger = new Scanner(file);
-        wordsList = new ArrayList<>();
+        wordsList = new ArrayList<String>();
         while (jogger.hasNext())
             wordsList.add(jogger.next());
         jogger.close();
-        return wordsList;
+        }
+
+    public void printWordsFrequencies(){
+        System.out.println("table of words with their frequencies");
+        wordsFreqMap.forEach((word, freq) -> System.out.printf("%15s  number is %d%n", word, freq));
+    } 
+    
+    public  void setFile(String fileName) throws Exception {
+        TextFileReader textFileReader = new TextFileReader(fileName);
+        file = textFileReader.setFile();        
         }
 
         

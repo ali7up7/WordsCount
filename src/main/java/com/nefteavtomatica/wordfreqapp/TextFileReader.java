@@ -12,13 +12,14 @@ public class TextFileReader {
             this.fileName = fileName;
         } 
 
-        public File getFile() throws Exception {
-            String fileAbsName = "src/test/java/com/nefteavtomatica/wordfreqapp/"+fileName;
-            File wordsToCountFile; 
+        public File setFile() throws Exception {
+            String fileAbsName = ""+fileName;
+            //to-do: delete line src/test/java/com/nefteavtomatica/wordfreqapp/
             try {
-                if (extensionIsTxt()) {} 
-                else throw new UnknownTypeException(null, fileAbsName);
-                return    wordsToCountFile = new File(fileAbsName);
+            if (extensionIsTxt()) {
+            } else
+                throw new UnknownTypeException(null, fileAbsName);
+            return new File(fileAbsName);
             } catch (UnknownTypeException e) {
                 System.out.println("unknown file type");
                 e.printStackTrace(); 

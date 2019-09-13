@@ -1,1 +1,2 @@
-/home/ali/snap/mvn projects/wordFreq/word-freq-app/src/test/java/com/nefteavtomatica/wordfreqapp/AppTest.java
+/home/ali/snap/mvn projects/wordFreq/word-freq-app/src/test/java/com/nefteavtomatica/wordfreqapp/TextFileReaderTest.java
+/home/ali/snap/mvn projects/wordFreq/word-freq-app/src/test/java/com/nefteavtomatica/wordfreqapp/WordsCountTest.java

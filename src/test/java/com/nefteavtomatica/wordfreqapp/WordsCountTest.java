@@ -1,6 +1,5 @@
 package com.nefteavtomatica.wordfreqapp;
 
-import java.io.File;
 import java.util.*;
 
 import static org.junit.Assert.*;
@@ -8,28 +7,38 @@ import org.junit.Test;
 
 
 public class WordsCountTest {
+    private WordsCount wordsCount;  
 
 
     @Test
+    public void testPrintWordsFreq() throws Exception {
+        assertWordsFreqMapNotNull();
+        wordsCount.printWordsFrequencies();
+    }
+
+    @Test
     public void  assertWordsFreqMapNotNull() throws Exception {
-        WordsCount wordsCount = getWordsCount("words to count frequency.txt");
-        List<String> wordsList = wordsCount.parseToList(); 
-        Map<String, Long> wordsFreqMap = wordsCount.countWordsFrequencies();
-        assertNotNull(wordsFreqMap);       
+        wordsCount = new WordsCount();
+        wordsCount.setFile("words to count frequency.txt");
+        wordsCount.parseToList();
+        wordsCount.countWordsFrequencies();
+        assertNotNull(wordsCount.wordsFreqMap);       
     }
 
     @Test
     public void testOfWordsListNotNull() throws Exception {
         List<String> wordsListShouldNotBeNull;
-        WordsCount wordsCount = getWordsCount("words to count frequency.txt");
-        wordsListShouldNotBeNull = wordsCount.parseToList();
+        WordsCount wordsCount = new WordsCount();
+        wordsCount.setFile("words to count frequency.txt");
+        wordsCount.parseToList();
+        wordsListShouldNotBeNull = wordsCount.wordsList;
         assertNotNull("wordList should not be null",wordsListShouldNotBeNull);       
     }
 
-    public  WordsCount getWordsCount(String fileName) throws Exception {
-        TextFileReader textFileReader = new TextFileReader(fileName);
-        File file = textFileReader.getFile();     
-        WordsCount wordsCount = new WordsCount(file);    
-        return wordsCount;
-        }
+    @Test
+    public void testFileNotNull() throws Exception {
+        WordsCount wordsCount = new WordsCount();
+        wordsCount.setFile("words to count frequency.txt");
+        assertNotNull("file should not be null",wordsCount.file); 
+    }
 }

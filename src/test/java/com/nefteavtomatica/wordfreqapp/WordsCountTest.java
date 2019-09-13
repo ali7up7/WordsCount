@@ -11,7 +11,7 @@ public class WordsCountTest {
 
     @Test
     public void testFileSetByPromptNotNull() throws Exception {
-        WordsCount wordsCount = new WordsCount();
+        wordsCount = new WordsCount();
         wordsCount.prompt();
         assertNotNull(wordsCount.file);
     } 
@@ -25,7 +25,7 @@ public class WordsCountTest {
     @Test
     public void  assertWordsFreqMapNotNull() throws Exception {
         wordsCount = new WordsCount();
-        wordsCount.setFile("words to count frequency.txt");
+        wordsCount.setFile("words.txt");
         wordsCount.parseToList();
         wordsCount.countWordsFrequencies();
         assertNotNull(wordsCount.wordsFreqMap);       
@@ -35,7 +35,7 @@ public class WordsCountTest {
     public void testOfWordsListNotNull() throws Exception {
         List<String> wordsListShouldNotBeNull;
         wordsCount = new WordsCount();
-        wordsCount.setFile("words to count frequency.txt");
+        wordsCount.setFile("words.txt");
         wordsCount.parseToList();
         wordsListShouldNotBeNull = wordsCount.wordsList;
         assertNotNull("wordList should not be null",wordsListShouldNotBeNull);       
@@ -44,7 +44,7 @@ public class WordsCountTest {
     @Test
     public void testFileNotNull() throws Exception {
         WordsCount wordsCount = new WordsCount();
-        wordsCount.setFile("words to count frequency.txt");
+        wordsCount.setFile("words11.txt");
         assertNotNull("file should not be null",wordsCount.file); 
     }
 }

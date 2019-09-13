@@ -1,24 +1,32 @@
 package com.nefteavtomatica.wordfreqapp;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Optional;
 
 import javax.lang.model.type.UnknownTypeException;
 
 public class TextFileReader {
         private String fileName;
+        private File file;
 
         public TextFileReader(String fileName) {
             this.fileName = fileName;
         } 
 
-        public File getFile() throws Exception {
-            String fileAbsName = ""+fileName;
+        public File getTxtFile() throws Exception{
             try {
-            if (extensionIsTxt()) {
+            if (extensionIsTxt())  {
             } else
-                throw new UnknownTypeException(null, fileAbsName);
-            return new File(fileAbsName);
+                throw new UnknownTypeException(null, fileName);
+            readFile(fileName);    
+            
+            return null;
+            } 
+
+        private File readFile(String fileName){
+            if (Files.exists("",fileName))
+            return new File(fileName);
             } catch (UnknownTypeException e) {
                 System.out.println("unknown file type");
                 e.printStackTrace(); 
@@ -26,8 +34,8 @@ public class TextFileReader {
                 System.out.println("can not find the file");
                 e.printStackTrace(); 
             }
-            return null;
-            } 
+            
+        }    
     
         boolean extensionIsTxt() throws IOException {
             Optional<String> maybeExtension = getExtension();

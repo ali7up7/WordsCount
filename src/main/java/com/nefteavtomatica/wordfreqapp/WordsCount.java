@@ -16,13 +16,13 @@ public class WordsCount {
     }
 
     public static void main(String[] args) throws Exception {
-    //    WordsCount staticWordsCount = new WordsCount();
-   //     staticWordsCount.prompt();      
+       WordsCount staticWordsCount = new WordsCount();
+       staticWordsCount.prompt();      
     }
 
     public void prompt() throws  Exception {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("please enter file name =");
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
+        System.out.println("please enter file name: ");
         wordsCount.setFile(in.readLine());
 
     }
@@ -51,7 +51,7 @@ public class WordsCount {
     
     public  void setFile(String fileName) throws Exception {
         TextFileReader textFileReader = new TextFileReader(fileName);
-        file = textFileReader.getFile();        
+        file = textFileReader.getTxtFile();        
         }
 
         

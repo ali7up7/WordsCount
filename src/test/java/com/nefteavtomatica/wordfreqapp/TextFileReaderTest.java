@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TextFileReaderTest{
     @Test
     public void assertExtensionIsTxt() throws IOException {
-        TextFileReader textFileReader = new TextFileReader("words to count frequency.txt");
+        TextFileReader textFileReader = new TextFileReader("words.txt");
         boolean shouldBeTrue = false;      
         shouldBeTrue = textFileReader.extensionIsTxt();
         assertTrue(shouldBeTrue);

@@ -1,10 +1,6 @@
 package com.nefteavtomatica.wordfreqapp;
 
-import static org.junit.Assert.*;
-
-import java.io.*;
 import java.nio.file.*;
-
 import org.junit.Test;
 
 public class TextFileReaderTest{

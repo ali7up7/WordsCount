@@ -10,27 +10,11 @@ import org.junit.Test;
 public class WordsCountTest {
     private WordsCount wordsCount;  
 
-
-  
-    @Test (expected = NoSuchFileException.class)
-    public void promptThrowsNoSuchFileException() throws Exception {
-        wordsCount = new WordsCount();
-        wordsCount.prompt();
-    }
-
-
     @Test (expected = NoSuchFileException.class)
     public void setFileThrowsNoSuchFileException() throws Exception {
         wordsCount = new WordsCount();
         wordsCount.setFile("i am not here .txt");      
     }
-
-    @Test
-    public void testFileSetByPromptNotNull() throws Exception {
-        wordsCount = new WordsCount();
-        wordsCount.prompt();
-        assertNotNull(wordsCount.file);
-    } 
 
     @Test
     public void testPrintWordsFreq() throws Exception {

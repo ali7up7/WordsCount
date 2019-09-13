@@ -27,8 +27,6 @@ public class WordsCount {
         parseToList();
         countWordsFrequencies();
         printWordsFrequencies();
-        
-
     }
 
     public void countWordsFrequencies(){

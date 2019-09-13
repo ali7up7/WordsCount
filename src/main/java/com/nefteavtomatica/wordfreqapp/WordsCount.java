@@ -36,8 +36,9 @@ public class WordsCount {
         }       
     }
     
-    protected void parseToList() throws FileNotFoundException {
+    protected void parseToList() throws IOException {
         Scanner jogger = new Scanner(file);
+        scannerIsOk(jogger);
         wordsList = new ArrayList<String>();
         while (jogger.hasNext())
             wordsList.add(jogger.next());
@@ -53,6 +54,11 @@ public class WordsCount {
         TextFileReader textFileReader = new TextFileReader(fileName);
         file = textFileReader.getTxtFile();        
         }
+
+    private void  scannerIsOk(Scanner jogger) throws IOException {
+        if (!jogger.hasNext()) throw new IOException();
+        jogger.close();
+    }   
 
         
 

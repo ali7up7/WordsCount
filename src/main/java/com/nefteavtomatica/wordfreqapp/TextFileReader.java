@@ -4,8 +4,6 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
-import javax.lang.model.type.UnknownTypeException;
-
 public class TextFileReader {
         private String fileName;
         private File file;
@@ -16,15 +14,14 @@ public class TextFileReader {
         } 
 
         public File getTxtFile() throws Exception{        
-            if (!extensionIsTxt())  throw new UnknownTypeException(null, fileName);
-            readFile();         
+            readFile();
             return file;
             } 
 
-        protected void readFile() throws NoSuchFileException {
+        protected void readFile() throws  IOException {
               File possiblyFile = new File(fileName);
-              if (possiblyFile.exists()) file = possiblyFile;
-              else throw new NoSuchFileException(fileName);          
+              if (! possiblyFile.exists()) throw new NoSuchFileException(fileName);
+              if (possiblyFile.canRead() ) file = possiblyFile;          
         }    
    
         boolean extensionIsTxt() throws IOException {

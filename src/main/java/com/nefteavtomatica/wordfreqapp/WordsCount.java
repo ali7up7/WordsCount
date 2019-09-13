@@ -52,12 +52,13 @@ public class WordsCount {
     
     protected  void setFile(String fileName) throws Exception {
         TextFileReader textFileReader = new TextFileReader(fileName);
-        file = textFileReader.getTxtFile();        
+        file = textFileReader.getFile();        
         }
 
     private void  scannerIsOk(Scanner jogger) throws IOException {
-        if (!jogger.hasNext()) throw new IOException();
-        jogger.close();
+        if (!jogger.hasNext()){
+            throw new IOException();
+           }
     }   
 
         

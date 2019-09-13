@@ -12,9 +12,8 @@ public class TextFileReader {
             this.fileName = fileName;
         } 
 
-        public File setFile() throws Exception {
+        public File getFile() throws Exception {
             String fileAbsName = ""+fileName;
-            //to-do: delete line src/test/java/com/nefteavtomatica/wordfreqapp/
             try {
             if (extensionIsTxt()) {
             } else

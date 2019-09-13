@@ -9,6 +9,12 @@ import org.junit.Test;
 public class WordsCountTest {
     private WordsCount wordsCount;  
 
+    @Test
+    public void testFileSetByPromptNotNull() throws Exception {
+        WordsCount wordsCount = new WordsCount();
+        wordsCount.prompt();
+        assertNotNull(wordsCount.file);
+    } 
 
     @Test
     public void testPrintWordsFreq() throws Exception {
@@ -28,7 +34,7 @@ public class WordsCountTest {
     @Test
     public void testOfWordsListNotNull() throws Exception {
         List<String> wordsListShouldNotBeNull;
-        WordsCount wordsCount = new WordsCount();
+        wordsCount = new WordsCount();
         wordsCount.setFile("words to count frequency.txt");
         wordsCount.parseToList();
         wordsListShouldNotBeNull = wordsCount.wordsList;

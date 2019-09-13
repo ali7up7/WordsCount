@@ -9,12 +9,22 @@ public class WordsCount {
     protected List<String> wordsList;
     protected Map<String, Long> wordsFreqMap;
 
+    private WordsCount wordsCount;
+
     public WordsCount(){
         
     }
 
-    public static void main(String[] args) {
-        System.out.println("----+-----");
+    public static void main(String[] args) throws Exception {
+    //    WordsCount staticWordsCount = new WordsCount();
+   //     staticWordsCount.prompt();      
+    }
+
+    public void prompt() throws  Exception {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("please enter file name =");
+        wordsCount.setFile(in.readLine());
+
     }
 
     public void countWordsFrequencies(){
@@ -41,7 +51,7 @@ public class WordsCount {
     
     public  void setFile(String fileName) throws Exception {
         TextFileReader textFileReader = new TextFileReader(fileName);
-        file = textFileReader.setFile();        
+        file = textFileReader.getFile();        
         }
 
         

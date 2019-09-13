@@ -1,8 +1,7 @@
 package com.nefteavtomatica.wordfreqapp;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
+import java.nio.file.*;
 import java.util.*;
 
 import javax.lang.model.type.UnknownTypeException;
@@ -20,11 +19,11 @@ public class TextFileReader {
             if (extensionIsTxt())  {
             } else
                 throw new UnknownTypeException(null, fileName);
-            readFile(fileName);         
+            readFile();         
             return file;
             } 
 
-        private void readFile(String fileName) throws NoSuchFileException {
+        protected void readFile() throws NoSuchFileException {
             try {
               File possiblyFile = new File(fileName);
               if (possiblyFile.exists()) file = possiblyFile;

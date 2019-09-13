@@ -22,8 +22,10 @@ public class WordsCount {
 
     public void prompt() throws  Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
-        System.out.println("please enter file name: ");
-        wordsCount.setFile(in.readLine());
+       // System.out.println("please enter file name: ");
+        //in.readLine()
+        setFile("word.txt");
+        countWordsFrequencies();
 
     }
 

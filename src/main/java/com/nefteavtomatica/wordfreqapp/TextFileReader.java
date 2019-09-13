@@ -15,8 +15,7 @@ public class TextFileReader {
             this.fileName = fileName;
         } 
 
-        public File getTxtFile() throws Exception{
-            
+        public File getTxtFile() throws Exception{        
             if (extensionIsTxt())  {
             } else
                 throw new UnknownTypeException(null, fileName);
@@ -32,10 +31,9 @@ public class TextFileReader {
             } catch (UnknownTypeException e) {
                 System.out.println("unknown file type");
                 e.printStackTrace(); 
-        }
-            
+            }          
         }    
-    
+   
         boolean extensionIsTxt() throws IOException {
             Optional<String> maybeExtension = getExtension();
             String extension = maybeExtension.orElseThrow(IOException::new);

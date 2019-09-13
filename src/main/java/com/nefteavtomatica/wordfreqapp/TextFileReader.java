@@ -3,13 +3,14 @@ package com.nefteavtomatica.wordfreqapp;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
-import java.util.Optional;
+import java.util.*;
 
 import javax.lang.model.type.UnknownTypeException;
 
 public class TextFileReader {
         private String fileName;
         private File file;
+        protected List<String> wordsList;
 
         public TextFileReader(String fileName) {
             this.fileName = fileName;
@@ -47,4 +48,12 @@ public class TextFileReader {
                  .filter(f -> f.contains("."))
                  .map(f -> f.substring(fileName.lastIndexOf(".") + 1));
         }
+
+        public void parseToList() throws FileNotFoundException {
+            Scanner jogger = new Scanner(file);
+            wordsList = new ArrayList<String>();
+            while (jogger.hasNext())
+                wordsList.add(jogger.next());
+            jogger.close();
+            }
     }

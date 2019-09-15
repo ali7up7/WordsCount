@@ -21,13 +21,13 @@ public class WordsCount {
     public void prompt() throws  Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
         System.out.println("please enter file name: ");
-        setFile(in.readLine());
-        parseToList();
+        setFile(in.readLine());     
         countWordsFrequencies();
         printWordsFrequencies();
     }
 
-    protected void countWordsFrequencies(){
+    protected void countWordsFrequencies() throws IOException {
+        parseToList();
         long wordFreq;
         wordsFreqMap = new HashMap<String, Long>();
         for (String word: wordsList){

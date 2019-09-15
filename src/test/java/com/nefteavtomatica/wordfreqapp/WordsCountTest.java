@@ -1,5 +1,6 @@
 package com.nefteavtomatica.wordfreqapp;
 
+import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.*;
 
@@ -14,6 +15,13 @@ public class WordsCountTest {
     public void setFileThrowsNoSuchFileException() throws Exception {
         wordsCount = new WordsCount();
         wordsCount.setFile("i am not here .txt");      
+    }
+
+    @Test (expected = IOException.class)
+    public void testParseToListThrowsIOException() throws Exception {
+        wordsCount = new WordsCount();
+        wordsCount.setFile("kindle.exe");
+        wordsCount.countWordsFrequencies();
     }
 
     @Test

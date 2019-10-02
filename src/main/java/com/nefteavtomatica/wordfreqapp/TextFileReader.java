@@ -23,5 +23,4 @@ public class TextFileReader {
               if (! possiblyFile.exists()) throw new NoSuchFileException(fileName);
               if (possiblyFile.canRead() ) file = possiblyFile;          
         }    
-   
     }

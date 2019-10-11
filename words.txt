@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 alibaev azamat in available now
+=======
+alibaev azamat in available now if it's from about
+>>>>>>> 909e329... added more words to words.txt

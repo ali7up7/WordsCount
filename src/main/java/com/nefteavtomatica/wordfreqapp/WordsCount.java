@@ -22,11 +22,11 @@ public class WordsCount {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
         System.out.println("please enter file name: ");
         setFile(in.readLine());     
-        countWordsFrequenciesMapBasedLogic();
+        countWordsFrequencies();
         printWordsFrequencies();
     }
 
-    protected void countWordsFrequenciesMapBasedLogic() throws IOException {
+    protected void countWordsFrequencies() throws IOException {
         parseToList();
         long wordFreq;
         wordsFreqMap = new HashMap<String, Long>();
@@ -34,11 +34,6 @@ public class WordsCount {
             wordFreq = wordsList.stream().filter( f -> f.equals(word)).count();
             wordsFreqMap.putIfAbsent(word, wordFreq);
         }       
-    }
-
-    protected void countWordsFrequenciesOnRefs() throws IOException{
-        parseToList();
-        
     }
     
     protected void parseToList() throws IOException {
